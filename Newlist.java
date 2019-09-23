@@ -96,6 +96,42 @@ public class Newlist {
   
         return list; 
     } 
+    public Newlist move(Newlist list)
+    {
+    	Node prev=null;
+    	Node temp;
+    	Node cur;
+    	cur=list.head;
+    	while(cur.next!=null)
+    	{
+    		
+    		prev=cur;
+    		cur=cur.next;
+    		
+    		
+    	}
+    	temp=cur;
+    	temp.next=head;
+    	head=temp;
+    	prev.next=null;
+    	
+    	return list;
+
+    }
+    /*Printing the LinkedList*/
+      public void printList(){
+        Node node=head;
+        while(node.next!=null){
+          System.out.print(node.data+" ");
+          node=node.next;
+        }System.out.print(node.data+" ");
+        System.out.println();
+      }
+      public boolean isEmpty(){
+        if(head==null)
+          return true;
+        return false;
+      }
    
    
     public static void main(String[] args) 
@@ -127,7 +163,8 @@ public class Newlist {
          
         deleteByKey(list, 10); 
   
-        printList(list); 
+        list=list.move(list);
+		System.out.println(" moved successfully ");
         
         
     } 
